@@ -19,7 +19,7 @@ angular.module('ngClassFactory', [])
         classObject.prototype.resetKeys = resetKeys;
         classObject.prototype.forceResetToNull = forceResetToNull;
         classObject.prototype.setKeysToNull = setKeysToNull;
-        searchObject.prototype.removeEmptyValueKeys  = removeEmptyValueKeys;
+        searchObject.prototype.removeEmptyValueKeys = removeEmptyValueKeys;
         searchObject.prototype.areAllKeysNull = areAllKeysNull;
 
         function addKeys() {
@@ -101,6 +101,28 @@ angular.module('ngClassFactory', [])
 
             }
             return self;
+        }
+
+
+        function removeEmptyValueKeys() {
+            var self = this;
+            Object.keys(self).forEach(function(value, key)) {
+                if (self[value] == '') {
+                    self[value] = null;
+                }
+            }
+            return self;
+        }
+
+        function areAllKeysNull() {
+            var self = this;
+            var allKeysNull = true;
+            Object.keys(self).forEach(function(value, key) {
+                if (self[value] != null) {
+                    allKeysNull = false;
+                }
+            })
+            return allKeysNull;
         }
 
         return classObject;
