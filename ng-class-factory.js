@@ -19,8 +19,8 @@ angular.module('ngClassFactory', [])
         classObject.prototype.resetKeys = resetKeys;
         classObject.prototype.forceResetToNull = forceResetToNull;
         classObject.prototype.setKeysToNull = setKeysToNull;
-        searchObject.prototype.removeEmptyValueKeys = removeEmptyValueKeys;
-        searchObject.prototype.areAllKeysNull = areAllKeysNull;
+        classObject.prototype.removeEmptyValueKeys = removeEmptyValueKeys;
+        classObject.prototype.areAllKeysNull = areAllKeysNull;
 
         function addKeys() {
             //@ this function takes list of keys as an argument and add to current referrenced object
