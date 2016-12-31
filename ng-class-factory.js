@@ -1,14 +1,18 @@
 /*
-    This is very small factory(module) for creating instances where is injected
+    This is very small factory(module) for creating instances,
+    so where this factory is injected, it will get all these functions to that object.
 
-
+    *probably last commit for this year, bye bye 2k16*
 
     //@ for error messages, check out console 
     //@ it does not support types, will be added in further versions 
 */
 angular.module('ngClassFactory', [])
     .factory('classFactory', [function() {
-        var error = {}
+        var error = {
+            code: 0,
+            msg: ''
+        }
 
         function classObject() {
             if (arguments.length) {
@@ -17,6 +21,18 @@ angular.module('ngClassFactory', [])
                 }
             } else {
                 return this;
+            }
+        }
+        var dataTypeCollection = function(type) {
+            switch (type) {
+                case 'array':
+                case 'Array':
+                    return [];
+                    break;
+                case 'string':
+                case 'String':
+                    return '';
+                    break;
             }
         }
         classObject.prototype.addKeys = addKeys;
