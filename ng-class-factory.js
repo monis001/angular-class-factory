@@ -1,18 +1,17 @@
 /*
     This is very small factory(module) for creating instances,
     so where this factory is injected, it will get all these functions to that object.
-
-    *probably last commit for this year, bye bye 2k16*
-
-    //@ for error messages, check out console 
-    //@ it does not support types, will be added in further versions 
+   
+    //@ for error messages, check out console. 
+    //@ it does not support types, will be added in further versions. 
+    //@ status:Raw, not tested ,INCOMPLETE
 */
 angular.module('ngClassFactory', [])
     .factory('classFactory', [function() {
         var error = {
             code: 0,
             msg: ''
-        }
+        };
 
         function classObject() {
             if (arguments.length) {
@@ -28,13 +27,13 @@ angular.module('ngClassFactory', [])
                 case 'array':
                 case 'Array':
                     return [];
-                    break;
+
                 case 'string':
                 case 'String':
                     return '';
-                    break;
+
             }
-        }
+        };
         classObject.prototype.addKeys = addKeys;
         classObject.prototype.removeKeys = removeKeys;
         classObject.prototype.resetKeys = resetKeys;
@@ -50,12 +49,12 @@ angular.module('ngClassFactory', [])
             try {
                 if (arguments.length) {
                     for (var i in arguments) {
-                        self[i] = ''
+                        self[i] = '';
                     }
                 } else {
                     error.code = 1;
-                    error.msg = "Keys are missing"
-                    throw error
+                    error.msg = "Keys are missing";
+                    throw error;
                 }
             } catch (e) {
                 console.log(e);
@@ -75,8 +74,8 @@ angular.module('ngClassFactory', [])
                     return self;
                 } else {
                     error.code = 1;
-                    error.msg = "Keys are missing"
-                    throw error
+                    error.msg = "Keys are missing";
+                    throw error;
                 }
             } catch (e) {
                 console.log(e.message);
@@ -106,7 +105,7 @@ angular.module('ngClassFactory', [])
             var self = this;
             self.forEach(function(value, key) {
                 self[key] = null;
-            })
+            });
             return self;
         }
 
@@ -115,7 +114,7 @@ angular.module('ngClassFactory', [])
             try {
                 if (arguments) {
                     for (var i in arguments) {
-                        self[i] = null
+                        self[i] = null;
                     }
                 } else {
 
@@ -130,18 +129,18 @@ angular.module('ngClassFactory', [])
         function removeEmptyValueKeys() {
             var self = this;
             Object.keys(self).forEach(function(value, key)) {
-                if (self[value] == '') {
+                if (self[value] === '') {
                     self[value] = null;
                 }
             }
             return self;
-        }
+        };
 
         function areAllKeysNull() {
             var self = this;
             var allKeysNull = true;
             Object.keys(self).forEach(function(value, key) {
-                if (self[value] != null) {
+                if (self[value] !== null) {
                     allKeysNull = false;
                 }
             })
@@ -153,7 +152,7 @@ angular.module('ngClassFactory', [])
             var status = false;
             try {
                 if (arguments.length) {
-                    if (self[arguments[0]] == null) {
+                    if (self[arguments[0]] === null) {
                         status = true;
                     }
                 } else {
