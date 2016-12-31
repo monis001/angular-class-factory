@@ -1,4 +1,9 @@
 /*
+    This is very small factory(module) for creating instances where is injected
+
+
+
+    //@ for error messages, check out console 
     //@ it does not support types, will be added in further versions 
 */
 angular.module('ngClassFactory', [])
@@ -21,6 +26,7 @@ angular.module('ngClassFactory', [])
         classObject.prototype.setKeysToNull = setKeysToNull;
         classObject.prototype.removeEmptyValueKeys = removeEmptyValueKeys;
         classObject.prototype.areAllKeysNull = areAllKeysNull;
+        classObject.prototype.isThisKeyNUll = isThisKeyNUll;
 
         function addKeys() {
             //@ this function takes list of keys as an argument and add to current referrenced object
@@ -79,7 +85,8 @@ angular.module('ngClassFactory', [])
             return self;
         }
 
-        function forecResetToNull() {
+
+        function forceResetToNull() {
             var self = this;
             self.forEach(function(value, key) {
                 self[key] = null;
@@ -123,6 +130,24 @@ angular.module('ngClassFactory', [])
                 }
             })
             return allKeysNull;
+        }
+
+        function isThisKeyNUll() {
+            var self = this;
+            var status = false;
+            try {
+                if (arguments.length) {
+                    if (self[arguments[0]] == null) {
+                        status = true;
+                    }
+                } else {
+                    throw "Key is missing";
+                }
+            } catch (e) {
+                console.log(e);
+            }
+
+            return status;
         }
 
         return classObject;
