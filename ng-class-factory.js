@@ -1,10 +1,7 @@
-/*
-    This is very small factory(module) for creating instances,
-    so where this factory is injected, it will get all these functions to that object.
-   
+/* 
     //@ for error messages, check out console. 
     //@ it does not support types, will be added in further versions. 
-    //@ status:Raw, not tested ,INCOMPLETE
+    //@ status: Raw, not tested ,INCOMPLETE.
 */
 angular.module('ngClassFactory', [])
     .factory('classFactory', [function() {
