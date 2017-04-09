@@ -20,16 +20,15 @@ angular.module('ngClassFactory', [])
             }
         }
         var dataTypeCollection = function(type) {
-            switch (type) {
-                case 'array':
-                case 'Array':
-                    return [];
+            
+        var dataType= type.toLowerCase();
+        if(dataType==='array'){
+                return [];
 
-                case 'string':
-                case 'String':
-                    return '';
-
-            }
+        }else if(dataType==='string'){
+            
+                return '';
+        }
         };
         classObject.prototype.addKeys = addKeys;
         classObject.prototype.removeKeys = removeKeys;
@@ -125,13 +124,13 @@ angular.module('ngClassFactory', [])
 
         function removeEmptyValueKeys() {
             var self = this;
-            Object.keys(self).forEach(function(value, key)) {
+            Object.keys(self).forEach(function(value, key){
                 if (self[value] === '') {
                     self[value] = null;
                 }
-            }
+            
             return self;
-        };
+        });
 
         function areAllKeysNull() {
             var self = this;
@@ -140,7 +139,7 @@ angular.module('ngClassFactory', [])
                 if (self[value] !== null) {
                     allKeysNull = false;
                 }
-            })
+            });
             return allKeysNull;
         }
 
@@ -163,4 +162,5 @@ angular.module('ngClassFactory', [])
         }
 
         return classObject;
-    }])
+    }
+}])
