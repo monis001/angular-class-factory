@@ -3,17 +3,17 @@
     //@ it does not support types, will be added in further versions. 
     //@ status: Raw, not tested ,INCOMPLETE.
 */
-angular.module('ngClassFactory', [])
-    .factory('classFactory', [function() {
+angular.module("ngClassFactory", [])
+    .factory("classFactory", [function() {
         var error = {
             code: 0,
-            msg: ''
+            msg: ""
         };
 
         function classObject() {
             if (arguments.length) {
                 for (var i in arguments) {
-                    this[arguments[i]] = '';
+                    this[arguments[i]] = "";
                 }
             } else {
                 return this;
@@ -21,14 +21,14 @@ angular.module('ngClassFactory', [])
         }
         var dataTypeCollection = function(type) {
             
-        var dataType= type.toLowerCase();
-        if(dataType==='array'){
+            var dataType= type.toLowerCase();
+            if(dataType==="array"){
                 return [];
 
-        }else if(dataType==='string'){
+            }else if(dataType==="string"){
             
-                return '';
-        }
+                return "";
+            }
         };
         classObject.prototype.addKeys = addKeys;
         classObject.prototype.removeKeys = removeKeys;
@@ -45,7 +45,7 @@ angular.module('ngClassFactory', [])
             try {
                 if (arguments.length) {
                     for (var i in arguments) {
-                        self[i] = '';
+                        self[i] = "";
                     }
                 } else {
                     error.code = 1;
@@ -90,7 +90,7 @@ angular.module('ngClassFactory', [])
 
             function resetMe(keysVal) {
                 for (var i in keysVal) {
-                    self[i] = '';
+                    self[i] = "";
                 }
             }
             return self;
@@ -125,42 +125,42 @@ angular.module('ngClassFactory', [])
         function removeEmptyValueKeys() {
             var self = this;
             Object.keys(self).forEach(function(value, key){
-                if (self[value] === '') {
+                if (self[value] === "") {
                     self[value] = null;
                 }
             
-            return self;
-        });
-
-        function areAllKeysNull() {
-            var self = this;
-            var allKeysNull = true;
-            Object.keys(self).forEach(function(value, key) {
-                if (self[value] !== null) {
-                    allKeysNull = false;
-                }
+                return self;
             });
-            return allKeysNull;
-        }
 
-        function isThisKeyNUll() {
-            var self = this;
-            var status = false;
-            try {
-                if (arguments.length) {
-                    if (self[arguments[0]] === null) {
-                        status = true;
+            function areAllKeysNull() {
+                var self = this;
+                var allKeysNull = true;
+                Object.keys(self).forEach(function(value, key) {
+                    if (self[value] !== null) {
+                        allKeysNull = false;
                     }
-                } else {
-                    throw "Key is missing";
-                }
-            } catch (e) {
-                console.log(e);
+                });
+                return allKeysNull;
             }
 
-            return status;
-        }
+            function isThisKeyNUll() {
+                var self = this;
+                var status = false;
+                try {
+                    if (arguments.length) {
+                        if (self[arguments[0]] === null) {
+                            status = true;
+                        }
+                    } else {
+                        throw "Key is missing";
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
 
-        return classObject;
-    }
-}])
+                return status;
+            }
+
+            return classObject;
+        }
+    }]);
