@@ -2,9 +2,54 @@
 <title>
 	Deliciopie
 </title>
-<body ng-app="demoApp">
-	<script type="text/javascript" src="src/vendors/angular/angular.js"></script>
+<link rel="stylesheet" type="text/css" href="src/vendors/bootstrap/dist/css/bootstrap.css"/>
+<!--<link rel="stylesheet" type="text/css" href="src/vendors/bootstrap/dist/css/bootstrap-theme.css"/>-->
+<link rel="stylesheet" type="text/css" href="styles/css/custom.css"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
+
+<body ng-app="demoApp">
+
+<!-- @ header-->
+<header class="masthead">
+<div id="nav">
+  <div class="navbar  navbar-static-top header-menu" >
+    <div class="container">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a href="#" class="navbar-brand" style="color: white">Deliciopie</a>
+      <!--<a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="glyphicon glyphicon-bar"></span>
+        <span class="glyphicon glyphicon-bar"></span>
+        <span class="glyphicon glyphicon-bar"></span>
+      </a>-->
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav header-list">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Add Recepie</a></li>
+        </ul>
+        <ul class="nav pull-right navbar-nav">
+          <li>
+            <form class="navbar-form">
+              <input type="text" class="form-control" placeholder="Search a recepie">
+              <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+            </form>
+          </li>
+        </ul>
+      </div>		
+    </div>
+  </div><!-- /.navbar -->
+</div>
+</header>
+
+<!--@ content body -->
+
+<!--@footer -->
+
+	<script type="text/javascript" src="src/vendors/angular/angular.min.js"></script>
+	<script type="text/javascript" src="src/vendors/angular-route/angular-route.min.js"></script>
+	<script type="text/javascript" src="src/vendors/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="src/vendors/bootstrap/dist/js/bootstrap.js"></script>
+	
 	<script type="text/javascript" src="src/app.js"></script>
 
 </body>
