@@ -30,13 +30,29 @@ angular.module("ngClassFactory", [])
                 return "";
             }
         };
+
+        /*it will add more keys to the existing object*/
         classObject.prototype.addKeys = addKeys;
+        
+        /*it will remove the supplied key from the existing object*/
         classObject.prototype.removeKeys = removeKeys;
+        
+        /*it will reset the object if no keys are applied else it will reset all those which are applied*/
         classObject.prototype.resetKeys = resetKeys;
+        
+        /*it will set keys to null*/
         classObject.prototype.forceResetToNull = forceResetToNull;
+        
+        /**/
         classObject.prototype.setKeysToNull = setKeysToNull;
+        
+        /*it will remove empty keys*/
         classObject.prototype.removeEmptyValueKeys = removeEmptyValueKeys;
+        
+        /*it will check whether all keys are null or not*/
         classObject.prototype.areAllKeysNull = areAllKeysNull;
+        
+        /*it will check a particular key if it is null or not*/
         classObject.prototype.isThisKeyNUll = isThisKeyNUll;
 
         function addKeys() {
